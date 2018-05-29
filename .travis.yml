@@ -18,7 +18,7 @@ after_script:
   - git init
   # user.name 和 user.email 让 travis 能登录你的 github
   - git config user.name "Grayfirefly"
-  - git config user.email "2029595061@qq.com"
+  - git config user.email "645225300@qq.com"
   - git add .
   - git commit -m "docs:update articles"
   # GH_TOKEN 为你的 github 允许 travis 访问生成的凭证
