@@ -1,7 +1,9 @@
 # 运行环境，Travis 会自动提供这个环境
 language: node_js
 node_js: stable
-
+before_script:
+  - chmod -R 777 ./node_modules
+ # - npm install -g gulp
 # S: Build Lifecycle
 # 安装依赖包
 install:
