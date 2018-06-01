@@ -1,5 +1,10 @@
 ---
-title: 创建一个Vue项目
+title: Windows下搭建基于Vue.js的开发环境
+tags:
+top:
+  - 999
+categories: 前端
+date: 
 ---
 
 ### 安装NPM
