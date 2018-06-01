@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 plugins:
     hexo-generator-feed
-   ## hexo-generator-searchdb 
+    hexo-generator-searchdb 
 
 # RSS订阅
 feed:
@@ -85,11 +85,11 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
 # 搜索
-##search:
-##  path: search.xml
-  ##field: post
- ## format: html
- ## limit: 10000
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next

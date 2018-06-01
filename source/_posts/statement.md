@@ -1,8 +1,8 @@
 ---
 title: 公告
-tags:
-top: 
-  - 998
+tags: 
+  - 公告
+  - 声明 
 categories: 公告
 date: 
 ---

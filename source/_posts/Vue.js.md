@@ -1,6 +1,11 @@
 ---
 title: Windows下搭建基于Vue.js的开发环境
-tags:
+tags: 
+  - 前端
+  - Vue.js
+  - NPM
+  - Webpack
+  - Node.js
 top:
   - 999
 categories: 前端
