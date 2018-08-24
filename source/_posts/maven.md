@@ -9,26 +9,21 @@ categories: 后台
 date: 
 ---
 # What is Maven ?
- 
+
 maven: 专家，内行
-
 maven官网：[http://maven.apache.org/](http://maven.apache.org/)
-
 本文参考书籍：Maven实战（Maven in action 许晓斌 著）
-
 定义：它是一个跨平台的项目管理工具
-
 功能：Maven主要服务于基于Java平台的项目构建、依赖管理和项目信息管理
 
 # 项目构建
 
 几种构建工具 IDE、 Make、 Ant、 Gradle...
 
-**Make**：Make由一个名为Makefile的脚本文件驱动，该文件使用Make自己定义的语法格式。它的组成成分为一系列的规则，每一条规则又包括目标（Target）、依赖（Prerequisite）和命令(Command)。
+## Make
+Make由一个名为Makefile的脚本文件驱动，该文件使用Make自己定义的语法格式。它的组成成分为一系列的规则，每一条规则又包括目标（Target）、依赖（Prerequisite）和命令(Command)。
 
-例子：HelloWorld
-
-makefile文件如下:
+例子：HelloWorld的makefile文件如下:
 
 		HelloWorld : HelloWorld.java
         	echo "开始编译HelloWorld.java"
@@ -42,21 +37,18 @@ makefile文件如下:
 		开始执行HelloWorld.class
 		HelloWorld
 优点：可以利用系统的本地命令，能够快速高效的完成任务。
-
 缺点：将自身与操作系统邦定在一起，很难实现跨平台的构建，语法格式要求严格。
-
-
-**Ant** :(Another Neat Tool),意为“另一个简洁的工具”，Ant使用XML定义构建脚本。与Make相似，Ant有一个构建脚本build.xml，该文件的基本结构也是目标（target)、依赖（depends）以及实现目标的任务，可以把它看作Java版本的Make。
+## Ant
+(Another Neat Tool),意为“另一个简洁的工具”，Ant使用XML定义构建脚本。与Make相似，Ant有一个构建脚本build.xml，该文件的基本结构也是目标（target)、依赖（depends）以及实现目标的任务，可以把它看作Java版本的Make。
 
 优点：跨平台，构建项目更加的友好
 
 缺点：显示声明较为繁琐，代码重复较高
 
-**Maven** :
+## Maven
 Maven项目的核心是pom.xml。POM(Project Object Model,项目对象模型)定义了项目的基本信息，用于描述项目如何构建，声明项目依赖等等。
-
 example POM如下：
-	
+
 		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		  <modelVersion>4.0.0</modelVersion>
 		  <groupId>com.mvn.test</groupId>
@@ -70,8 +62,7 @@ example POM如下：
 
 缺点：Maven 过于复杂，中央仓库不完美（可能存在某个jar出现在不同的路径下），当无法从中央仓库获取所需的类库时，需要手工复制到本地仓库。
 
-**Gradle**
-
+## Gradle
 Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化构建开源工具。
 它使用一种基于Groovy的特定领域语言（DSL）来声明项目设置，抛弃了基于XML的各种繁琐配置。当前其支持的语言限于Java|Groovy和Scala,计划未来会支持更多的语言。（Gradle是一个开源的专注于灵活性和性能的自动化构建工具。Gradle的构件脚本是采用Groovy或Kotlin DSL语言编写的。）
 在gradle.build文件中加入如下配置：
@@ -85,10 +76,8 @@ Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化构建开�
 
 
 # 依赖管理
-
 ## Maven仓库
 Maven可以在某个位置存储所有Maven项目共享的构件，这个统一位置就是仓库。
-
 坐标和依赖是任何一个构件在Maven世界中的逻辑表示方式，而构建的物理方式是文件，Maven通过仓库来统一管理这些文件。
 ### 仓库分类
 #### 本地仓库
