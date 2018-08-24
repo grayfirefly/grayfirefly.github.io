@@ -8,8 +8,7 @@ top:
 categories: 后台
 date: 
 ---
-# Maven简介
-## What is Maven ?
+# What is Maven ?
  
 maven: 专家，内行
 
@@ -21,7 +20,7 @@ maven官网：[http://maven.apache.org/](http://maven.apache.org/)
 
 功能：Maven主要服务于基于Java平台的项目构建、依赖管理和项目信息管理
 
-## 项目构建
+# 项目构建
 
 几种构建工具 IDE、 Make、 Ant、 Gradle...
 
@@ -85,14 +84,14 @@ Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化构建开�
 	}
 
 
-## 依赖管理
+# 依赖管理
 
-### Maven仓库
+## Maven仓库
 Maven可以在某个位置存储所有Maven项目共享的构件，这个统一位置就是仓库。
 
 坐标和依赖是任何一个构件在Maven世界中的逻辑表示方式，而构建的物理方式是文件，Maven通过仓库来统一管理这些文件。
-#### 仓库分类
-##### 本地仓库
+### 仓库分类
+#### 本地仓库
 在maven中的配置文件settings.xml中的settings标签之内配置如下，即为本地仓库。
 
 	<localRepository>D:/LocalRepository/repo</localRepository>
@@ -100,7 +99,7 @@ Maven可以在某个位置存储所有Maven项目共享的构件，这个统一�
 一个构件只有在本地仓库中之后，才能由其他Maven项目使用。
 
 对于Maven来说，每个用户只有一个仓库，但可以配置访问多个远程仓库。
-##### 远程仓库
+#### 远程仓库
 - 中央仓库
 
 默认的远程仓库
@@ -148,7 +147,7 @@ Maven可以在某个位置存储所有Maven项目共享的构件，这个统一�
 	</repositories>
 
 
-#### setting.xml文件配置介绍
+### setting.xml文件配置介绍
 
 	<?xml version="1.0" encoding="UTF-8"?>
 
@@ -184,10 +183,10 @@ Maven可以在某个位置存储所有Maven项目共享的构件，这个统一�
 
 	</settings>
 
-### 构件的定义与依赖
+## 构件的定义与依赖
 在Maven世界中，任何一个依赖、插件或者项目构建的输出，都可以成为插件。
 
-#### 坐标
+### 坐标
 Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标。
 
 - **groupId**
@@ -213,7 +212,7 @@ Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定
 注意：groupId、artifactId、version是必须定义的，packaging是可选的（默认为jar）,classifier是不能直接定义的（因为附属构件不是项目直接默认生成的，而是由附加的插件帮助生成）。
 
 
-#### 依赖
+### 依赖
 根元素project下的dependencies可以包含一个或者多个dependency元素，以声明一个或多个项目依赖
 
 - **groupId**、**artifactId**、 **version**
@@ -269,12 +268,12 @@ runtime|runtime|X|X|runtime
 
 	用来排除传递性依赖
 
-## Maven的生命周期与插件
-### Maven生命周期
+# Maven的生命周期与插件
+## Maven生命周期
 Maven拥有三套相互独立的生命周期，它们分别是clean、default和site。
 
 clean生命周期的目的是清理项目，default的生命周期的目的是构建项目，而site生命周期的目的是建立项目站点。
-#### clean
+### clean
 clean生命周期的目的是清理项目，它主要包括三个阶段，如下：
 
 阶段序号|生命周期阶段|解释说明|插件目标
@@ -283,7 +282,7 @@ clean生命周期的目的是清理项目，它主要包括三个阶段，如下
 2|clean|清理上一次构建生成的文件|maven-clean-plugin:clean
 3|post-clean|执行一些清理后需要完成的工作|&nbsp;
 
-#### default
+### default
 default生命周期定义了真正构建时所需要执行的所有步骤，它是所有生命周期中最核心的部分。
 
 阶段序号|生命周期阶段|解释|插件目标|执行任务
@@ -312,7 +311,7 @@ default生命周期定义了真正构建时所需要执行的所有步骤，它�
 22|install|将包安装到Maven本地仓库，供本地其他Maven项目使用|maven-install-plugin:install|将项目输出构件安装到本地仓库
 23|deploy|将最终的包复制到远程仓库，供其他开发人员和Maven项目使用|maven-deploy-plugin:deploy|将项目输出构件部署到远程仓库
 
-#### site
+### site
 site生命周期的目的是建立和发布项目站点，如下表：
 
 
@@ -324,13 +323,13 @@ site生命周期的目的是建立和发布项目站点，如下表：
 4|site-deploy|将生成的项目站点发布到服务器上|maven-site-plugin:deploy
 
 
-### 插件
+## 插件
 Maven的核心仅仅定义了抽象的生命周期。具体的任务是交由插件完成的，Maven会在需要的时候下载并使用插件。
 ####插件目标
 聚集在一个插件中的每个功能就是一个插件目标
 
 例如：maven-dependency-plugin有十多个目标，其中目标包含 dependency:analyze、dependency:tree、denpendency:list等等，冒号前为插件前缀，冒号后为插件的目标
-####插件绑定
+### 插件绑定
 Maven的生命周期与插件相互绑定，用以完成实际的构件任务。分为内置绑定和自定义绑定。
 
 **内置绑定**
@@ -344,7 +343,7 @@ Maven在核心为一些主要的生命周期阶段绑定了很多插件的目标
 
 当多个插件目标绑定到同一个阶段的时候，这些插件的声明的先后顺序决定了目标的执行任务。
 
-## Maven常用命令
+# Maven常用命令
 
 Maven常用命令 | 命令解释
 ---|---
@@ -362,8 +361,8 @@ mvn archetype:generate | 创建Maven的普通java项目
 mvn tomcat:run | 在tomcat容器中运行web应用
 mvn jetty:run | 调用 Jetty 插件的 Run 目标在 Jetty Servlet 容器中启动 web 应用
 
-## POM
-### POM特性
+# POM
+## POM特性
 
 - 聚合
 
@@ -411,7 +410,7 @@ reporting|包括项目的报告输出目录配置、 报告插件配置
 
 - 依赖管理
 
-### 反应堆
+## 反应堆
 在一个多模块的Maven项目中，反应堆（Reactor）是指所有模块组成的。
 
 反应堆的构建顺序：Maven按序读取POM，如果该POM没有依赖模块，那么构建该模块，否则就先构建起依赖模块，如果依赖还依赖其他模块，则进一步先构建依赖的依赖。
