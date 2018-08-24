@@ -8,6 +8,7 @@ top:
 categories: 后台
 date: 
 ---
+# Maven简介
 ## What is Maven ?
  
 maven: 专家，内行
@@ -90,8 +91,8 @@ Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化构建开�
 Maven可以在某个位置存储所有Maven项目共享的构件，这个统一位置就是仓库。
 
 坐标和依赖是任何一个构件在Maven世界中的逻辑表示方式，而构建的物理方式是文件，Maven通过仓库来统一管理这些文件。
-####仓库分类
-#####本地仓库
+#### 仓库分类
+##### 本地仓库
 在maven中的配置文件settings.xml中的settings标签之内配置如下，即为本地仓库。
 
 	<localRepository>D:/LocalRepository/repo</localRepository>
