@@ -8,7 +8,6 @@ top:
 categories: 后台
 date: 
 ---
-
 ## What is Maven ?
  
 maven: 专家，内行
@@ -25,8 +24,8 @@ maven官网：[http://maven.apache.org/](http://maven.apache.org/)
 
 
 ## 项目构建
-几种构建工具
-IDE Make Ant Gradle...
+
+几种构建工具 IDE、 Make、 Ant、 Gradle...
 
 **Make**：Make由一个名为Makefile的脚本文件驱动，该文件使用Make自己定义的语法格式。它的组成成分为一系列的规则，每一条规则又包括目标（Target）、依赖（Prerequisite）和命令(Command)。
 
