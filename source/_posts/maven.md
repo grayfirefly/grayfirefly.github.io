@@ -3,22 +3,18 @@ title: Maven基础
 tags: 
   - maven
   - 构建工具
-top:
-  - 998
-categories: 后台
+categories: 工具
 date: 
 ---
 # What is Maven ?
-
-maven: 专家，内行
+maven: 专家，内行，可以理解为知识的累积
 maven官网：[http://maven.apache.org/](http://maven.apache.org/)
 本文参考书籍：Maven实战（Maven in action 许晓斌 著）
 定义：它是一个跨平台的项目管理工具
 功能：Maven主要服务于基于Java平台的项目构建、依赖管理和项目信息管理
-
 # 项目构建
 
-几种构建工具 IDE、 Make、 Ant、 Gradle...
+几种构建工具,如 IDE、 Make、 Ant、 Gradle...
 
 ## Make
 Make由一个名为Makefile的脚本文件驱动，该文件使用Make自己定义的语法格式。它的组成成分为一系列的规则，每一条规则又包括目标（Target）、依赖（Prerequisite）和命令(Command)。
@@ -42,7 +38,6 @@ Make由一个名为Makefile的脚本文件驱动，该文件使用Make自己定�
 (Another Neat Tool),意为“另一个简洁的工具”，Ant使用XML定义构建脚本。与Make相似，Ant有一个构建脚本build.xml，该文件的基本结构也是目标（target)、依赖（depends）以及实现目标的任务，可以把它看作Java版本的Make。
 
 优点：跨平台，构建项目更加的友好
-
 缺点：显示声明较为繁琐，代码重复较高
 
 ## Maven
@@ -59,7 +54,6 @@ example POM如下：
 		</project>
 
 优点：快速构建，依赖管理方便（拥有Java开源软件包的中央仓库，可直接使用），便于敏捷开发。
-
 缺点：Maven 过于复杂，中央仓库不完美（可能存在某个jar出现在不同的路径下），当无法从中央仓库获取所需的类库时，需要手工复制到本地仓库。
 
 ## Gradle
@@ -105,11 +99,9 @@ Maven可以在某个位置存储所有Maven项目共享的构件，这个统一�
 
 常见的有Java.net Maven库和JBoss Maven库。
 
-配置阿里云库，如下两种方式。
+example:配置阿里云库，如下两种方式。
 
-方式一：
-
-在setting.xml中的settings标签之内配置如下
+方式一：在setting.xml中的settings标签之内配置如下
 
 	<mirror>
     	<id>alimaven</id>
@@ -314,7 +306,7 @@ site生命周期的目的是建立和发布项目站点，如下表：
 
 ## 插件
 Maven的核心仅仅定义了抽象的生命周期。具体的任务是交由插件完成的，Maven会在需要的时候下载并使用插件。
-####插件目标
+#### 插件目标
 聚集在一个插件中的每个功能就是一个插件目标
 
 例如：maven-dependency-plugin有十多个目标，其中目标包含 dependency:analyze、dependency:tree、denpendency:list等等，冒号前为插件前缀，冒号后为插件的目标
