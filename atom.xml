@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>灰色萤火虫</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-09-10T07:47:26.744Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Gray Firefly</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows下搭建基于Vue.js的开发环境</title>
+    <link href="http://yoursite.com/2018/09/10/Vue.js/"/>
+    <id>http://yoursite.com/2018/09/10/Vue.js/</id>
+    <published>2018-09-10T07:47:26.744Z</published>
+    <updated>2018-09-10T07:47:26.744Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;安装NPM&quot;&gt;&lt;a href=&quot;#安装NPM&quot; class=&quot;headerlink&quot; title=&quot;安装NPM&quot;&gt;&lt;/a&gt;安装NPM&lt;/h3&gt;&lt;p&gt;由于NPM是随同NodeJS一起安装的包管理工具，而大部分新版本的nodejs都集成了NPM，因此可以去&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue.js" scheme="http://yoursite.com/tags/Vue-js/"/>
+    
+      <category term="NPM" scheme="http://yoursite.com/tags/NPM/"/>
+    
+      <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>公告</title>
+    <link href="http://yoursite.com/2018/09/10/statement/"/>
+    <id>http://yoursite.com/2018/09/10/statement/</id>
+    <published>2018-09-10T07:47:26.744Z</published>
+    <updated>2018-09-10T07:47:26.744Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本博客本着技术无罪，知识共享的原则，凡是在本博客传、阅、抄、录的内容均可无偿使用。本人技术小白，非专业研究人员，所写与所悟，或浅薄或错漏或过时。择其善者而从之。&lt;/p&gt;
+&lt;p&gt;“且夫水之积也不厚，则其负大舟也无力，水浅而舟大也”。所以说水一定要深才能承担更大的重任，学习技术
+        
+      
+    
+    </summary>
+    
+      <category term="公告" scheme="http://yoursite.com/categories/%E5%85%AC%E5%91%8A/"/>
+    
+    
+      <category term="公告" scheme="http://yoursite.com/tags/%E5%85%AC%E5%91%8A/"/>
+    
+      <category term="声明" scheme="http://yoursite.com/tags/%E5%A3%B0%E6%98%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Maven基础</title>
+    <link href="http://yoursite.com/2018/09/10/maven/"/>
+    <id>http://yoursite.com/2018/09/10/maven/</id>
+    <published>2018-09-10T07:47:26.744Z</published>
+    <updated>2018-09-10T07:47:26.744Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;What-is-Maven&quot;&gt;&lt;a href=&quot;#What-is-Maven&quot; class=&quot;headerlink&quot; title=&quot;What is Maven ?&quot;&gt;&lt;/a&gt;What is Maven ?&lt;/h1&gt;&lt;p&gt;maven:
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="maven" scheme="http://yoursite.com/tags/maven/"/>
+    
+      <category term="构建工具" scheme="http://yoursite.com/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+</feed>

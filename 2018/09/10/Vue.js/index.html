@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,Vue.js,NPM,Webpack,Node.js," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="灰色萤火虫" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="安装NPM由于NPM是随同NodeJS一起安装的包管理工具，而大部分新版本的nodejs都集成了NPM，因此可以去nodejs官网下载最新的版本进行安装。本人安装的是Windows版本，因此需要配置环境变量。以下是熟悉的套路： 此电脑-右键属性-高级系统设置-环境变量  1.新建HOME变量      NODE_HOME：D:\Program Files\nodejs // 此处为软件安装目录">
+<meta name="keywords" content="前端,Vue.js,NPM,Webpack,Node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下搭建基于Vue.js的开发环境">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/Vue.js/index.html">
+<meta property="og:site_name" content="灰色萤火虫">
+<meta property="og:description" content="安装NPM由于NPM是随同NodeJS一起安装的包管理工具，而大部分新版本的nodejs都集成了NPM，因此可以去nodejs官网下载最新的版本进行安装。本人安装的是Windows版本，因此需要配置环境变量。以下是熟悉的套路： 此电脑-右键属性-高级系统设置-环境变量  1.新建HOME变量      NODE_HOME：D:\Program Files\nodejs // 此处为软件安装目录">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-10T07:47:26.744Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows下搭建基于Vue.js的开发环境">
+<meta name="twitter:description" content="安装NPM由于NPM是随同NodeJS一起安装的包管理工具，而大部分新版本的nodejs都集成了NPM，因此可以去nodejs官网下载最新的版本进行安装。本人安装的是Windows版本，因此需要配置环境变量。以下是熟悉的套路： 此电脑-右键属性-高级系统设置-环境变量  1.新建HOME变量      NODE_HOME：D:\Program Files\nodejs // 此处为软件安装目录">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/Vue.js/"/>
+
+
+
+
+
+  <title>Windows下搭建基于Vue.js的开发环境 | 灰色萤火虫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">灰色萤火虫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/Vue.js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gray Firefly">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰色萤火虫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Windows下搭建基于Vue.js的开发环境</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T07:47:26+00:00">
+                2018-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="安装NPM"><a href="#安装NPM" class="headerlink" title="安装NPM"></a>安装NPM</h3><p>由于NPM是随同NodeJS一起安装的包管理工具，而大部分新版本的nodejs都集成了NPM，因此可以去<a href="http://nodejs.cn/" target="_blank" rel="noopener">nodejs官网</a>下载最新的版本进行安装。本人安装的是Windows版本，因此需要配置环境变量。以下是熟悉的套路：</p>
+<pre><code>此电脑-右键属性-高级系统设置-环境变量
+
+1.新建HOME变量
+
+    NODE_HOME：D:\Program Files\nodejs // 此处为软件安装目录
+
+2.将变量加入到Path变量下
+
+    Path：%NODE_HOME%
+
+3.配置完毕后，windows + R 输入cmd打开Dos窗口，输入如下命令：
+
+    npm -v
+</code></pre><p>本机执行结果如下：</p>
+<pre><code>C:\Users\Hasee&gt;npm -v
+5.6.0
+
+C:\Users\Hasee&gt;
+</code></pre><p>如果不能正常显示出版本，则检查软件是否安装正确及环境变量是否配置正确。</p>
+<h3 id="配置全局环境变量，"><a href="#配置全局环境变量，" class="headerlink" title="配置全局环境变量，"></a>配置全局环境变量，</h3><h4 id="创建全局安装目录"><a href="#创建全局安装目录" class="headerlink" title="创建全局安装目录"></a>创建全局安装目录</h4><p>在NPM的后续使用中，可能会遇到各种的命令找不到的问题，需要再配置各种各样的环境变量，为了防止这种问题的发生，进行全局变量的配置。打开Dos窗口，由于我的nodejs的安装目录为D:\Program Files\nodejs，执行的时候要填对目录，输入以下命令：</p>
+<pre><code>npm config set prefix &quot;D:\Program Files\nodejs\node_global&quot;
+
+npm config set cache &quot;D:\Program Files\nodejs\node_cache&quot;
+</code></pre><p>这样就可以把后面用到的工具全局安装的装到node_global里并且可以只需要配置一次环境变量就可以直接用命令使用，例如后续用到的vue和webpack。</p>
+<h4 id="配置全局环境变量"><a href="#配置全局环境变量" class="headerlink" title="配置全局环境变量"></a>配置全局环境变量</h4><p>执行完命令之后，可以进行环境变量的修改，这样就可以保证以后利用npm安装的一些工具可以不用在累计配置环境变量，因上述已经添加过，NODE_HOME不变，修改Path，如下：</p>
+<pre><code>Path:%NODE_HOME%\;%NODE_HOME%\node_modules;%NODE_HOME%\node_global;
+</code></pre><h4 id="安装Vue"><a href="#安装Vue" class="headerlink" title="安装Vue"></a>安装Vue</h4><p>本次安装采用NPM安装,打开Dos窗口（以下全在Dos窗口中执行，不再详细叙述），因为npm在国内下载速度很慢，正如maven远程仓库一样，访问国外的资源很慢，这里采用taobao镜像，执行完下列命令后，可以用cnpm来代替npm命令。</p>
+<pre><code>npm install -g cnpm –registry=https://registry.npm.taobao.org
+</code></pre><p>下面开始上正菜，上一步可有可无，如果运气好，网速好的可以忽略上步…</p>
+<p>安装vue-cli脚手架,执行这一步，可以顺带安装vue,一举两得,npm和cnpm二选一</p>
+<pre><code>(npm)cnpm install -g vue-cli   
+</code></pre><p>安装webpack，这里进行全局安装即可,至于webpack是什么玩意，可以理解为打包工具，想要了解更深，请访问<a href="https://webpack.js.org/" target="_blank" rel="noopener">https://webpack.js.org/</a>。</p>
+<pre><code>// 全局安装
+(npm)cnpm install -g webpack
+
+// 安装到你的项目目录，本次不执行
+(npm)cnpm install --save-dev webpack
+
+// 查看vue安装结果,如果
+vue -V 
+</code></pre><p>由于安装之后，在查看webpack的版本时候，根据提示需要安装webpack-cli，可根据提示进行输入命令。也可以退出直接安装webpack-cli，命令如下：</p>
+<pre><code>(npm)cnpm install -D webpack-cli
+</code></pre><p>输入以下命令查看是否安装成功</p>
+<pre><code>// 查看webpack
+webpack -v
+</code></pre><h3 id="创建vue项目"><a href="#创建vue项目" class="headerlink" title="创建vue项目"></a>创建vue项目</h3><h4 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h4><p>在Dos窗口下，由于本机每次创建项目都卡死，有可能版本不稳定导致的，或者其他原因。因此，使用了gitBash窗口，以下都是，不在累述，进入工作空间（凭自己喜好创建），输入以下命令：</p>
+<pre><code>$vue init webpack vue-demo
+</code></pre><p>根据提示输入创建项目的信息，本着能躺着绝不坐着的习性，一路回车。创建成功后，可以到项目的工作空间查看项目的情况，它会自动创建一坨vue项目的文件。</p>
+<h4 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h4><pre><code>// 进入项目目录
+$cd vue_demo
+
+// 运行项目
+$cnpm run dev
+</code></pre><p>在浏览器地址栏输入上述运行的结果，例如，我这里是<a href="http://localhost:8080，查看结果。" target="_blank" rel="noopener">http://localhost:8080，查看结果。</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
+          
+            <a href="/tags/NPM/" rel="tag"># NPM</a>
+          
+            <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+          
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/statement/" rel="next" title="公告">
+                <i class="fa fa-chevron-left"></i> 公告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="Gray Firefly" />
+            
+              <p class="site-author-name" itemprop="name">Gray Firefly</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装NPM"><span class="nav-number">1.</span> <span class="nav-text">安装NPM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置全局环境变量，"><span class="nav-number">2.</span> <span class="nav-text">配置全局环境变量，</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建全局安装目录"><span class="nav-number">2.1.</span> <span class="nav-text">创建全局安装目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置全局环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">配置全局环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Vue"><span class="nav-number">2.3.</span> <span class="nav-text">安装Vue</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建vue项目"><span class="nav-number">3.</span> <span class="nav-text">创建vue项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化项目"><span class="nav-number">3.1.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行项目"><span class="nav-number">3.2.</span> <span class="nav-text">运行项目</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gray Firefly</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
