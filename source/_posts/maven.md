@@ -103,12 +103,14 @@ example:配置阿里云库，如下两种方式。
 
 方式一：在setting.xml中的settings标签之内配置如下
 
-	<mirror>
-    	<id>alimaven</id>
-		<name>aliyun maven</name>
-		<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-		<mirrorOf>central</mirrorOf>   <!-- 表示中央仓库的镜像 -->     
-	</mirror>
+    <mirrors>
+	  	<mirror>
+    		<id>alimaven</id>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<mirrorOf>central</mirrorOf>   <!-- 表示中央仓库的镜像 -->     
+		</mirror>
+	</mirrors>
 
 方式二：在 pom.xml 中直接添加如下
 
